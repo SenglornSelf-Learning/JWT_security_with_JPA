@@ -1,28 +1,26 @@
 package springsecurity.model;
 
 import jakarta.persistence.Column;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
 
 
-public class AppUserRequest {
+public class AppUserDTO {
+    private Integer id;
+
     @Column(name = "user_name", length = 25)
     private String userName;
 
     @Column(length = 100, unique = true, nullable = false)
     private String email;
 
-    @Column(unique = true, nullable = false)
-    private String password;
-
     @Column(nullable = false)
     private String role;
 
-    public AppUserRequest() {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUserName() {
@@ -41,14 +39,6 @@ public class AppUserRequest {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getRole() {
         return role;
     }
@@ -57,10 +47,15 @@ public class AppUserRequest {
         this.role = role;
     }
 
-    public AppUserRequest(String userName, String email, String password, String role) {
+    public AppUserDTO() {
+    }
+
+    public AppUserDTO(Integer id, String userName, String email, String role) {
+        this.id = id;
         this.userName = userName;
         this.email = email;
-        this.password = password;
         this.role = role;
     }
+
+    /* This class use for register new user */
 }
