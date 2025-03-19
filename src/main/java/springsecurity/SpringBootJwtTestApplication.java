@@ -18,5 +18,4 @@ public class SpringBootJwtTestApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootJwtTestApplication.class, args);
     }
-
 }

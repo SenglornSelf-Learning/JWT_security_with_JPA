@@ -1,20 +1,16 @@
 package springsecurity.model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 
 public class ApiResponse<T> {
+    // Getters and setters (if not using Lombok)
     private String message;
+
     private HttpStatus status;
     private T payload;
 
-    // Constructor
-    public ApiResponse(String message, HttpStatus status, T payload) {
-        this.message = message;
-        this.status = status;
-        this.payload = payload;
-    }
-
-    // Getters and setters (if not using Lombok)
     public String getMessage() {
         return message;
     }
@@ -37,6 +33,15 @@ public class ApiResponse<T> {
 
     public void setPayload(T payload) {
         this.payload = payload;
+    }
+
+    public ApiResponse(String message, HttpStatus status, T payload) {
+        this.message = message;
+        this.status = status;
+        this.payload = payload;
+    }
+
+    public ApiResponse() {
     }
 }
 
